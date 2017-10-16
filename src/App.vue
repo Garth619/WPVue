@@ -6,31 +6,30 @@
           <img src="./assets/img/logo.png">
         </router-link>
       </h1>
-      <nav class="main-nav column" v-if="navItems && navItems.length">
-
+      <nav class="main-nav column" v-if="navItems && navItems != ''">
         <ul class="top-level">
-
-          <li v-for="navItem of navItems">
-            <router-link :to="navItem.url" exact>
+          <li>
+            <router-link :to="'/'">Home</router-link>
+          <li v-for="navItem of navItems.items" :key="navItem.object_slug">
+            <router-link :to="'/' + navItem.object_slug" exact>
               {{navItem.title}}
             </router-link>
-
           </li>
         
         </ul>
-      
       </nav>
     </header>
 
     <transition class="router-wrap" name="fade">
       <router-view></router-view>
     </transition>
+    
     <footer class="site-footer row">
       <div class="column footer-left">
-        <p>&copy; 2017 WP Web Apps</p>
+        <p><a href="https://wpwebapps.com" target="blank" rel="nofollow">&copy; 2017 WP Web Apps</a></p>
       </div>
       <div class="column footer-right">
-        <p>Snappy slogan goes here.</p>
+        <p>WP + Vue.js = Amazing</p>
       </div>
     </footer>
   </div>
@@ -38,7 +37,7 @@
 </template>
 
 <script>
-  import axios from 'axios'
+  import { HTTP } from './environment';
   export default {
     name: 'app',
     data() {
@@ -52,7 +51,7 @@
 
     methods: {
       fetchData() {
-        axios.get('https://3sonsdevelopment.com/demo/artisan/wp-json/artisan-app-helper/v1/menu-locations/spa-main')
+        HTTP.get('wp-json/wp-api-menus/v2/menus/2')
         .then((resp) => {
           this.navItems = resp.data
         })

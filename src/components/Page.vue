@@ -1,7 +1,7 @@
 <template>
   <main class="main-content" v-if="page && page != ''" :key="page.id">
 
-      <img :src="page.featured_image_url" />
+      <img :src="page.better_featured_image.source_url" />
       <h1>{{page.title.rendered}}</h1>
       <div v-html="page.content.rendered"></div>
 
@@ -33,7 +33,7 @@
 
         if ( this.$route.params.id === undefined ) {
 
-          HTTP.get('wp/v2/pages?slug=front-page')
+          HTTP.get('wp-json/wp/v2/pages?slug=front-page')
           .then((resp) => {
             this.page = resp.data[0]
           })
@@ -43,7 +43,7 @@
         
         } else {
 
-          HTTP.get('wp/v2/pages?slug='+this.$route.params.id)
+          HTTP.get('wp-json/wp/v2/pages?slug='+this.$route.params.id)
           .then((resp) => {
             this.page = resp.data[0]
           })

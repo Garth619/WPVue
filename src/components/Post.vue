@@ -1,10 +1,8 @@
 <template>
-  <main class="main-content" :key="post.id">
-    <div v-if="post">
-      <img :src="post.featured_image_url" />
-      <h1 v-html="post.title.rendered"></h1>
-      <div v-html="post.content.rendered"></div>
-    </div>
+  <main class="main-content" v-if="post && post != ''" :key="post.id">
+    <img :src="post.better_featured_image.source_url" />
+    <h1 v-html="post.title.rendered"></h1>
+    <div v-html="post.content.rendered"></div>
   </main>
 </template>
 <script>
@@ -15,7 +13,7 @@
 
     data() {
       return {
-        post: {}
+        post: []
       }
     },
 
@@ -29,7 +27,7 @@
 
     methods: {
       fetchData() {
-        HTTP.get('wp/v2/posts?slug='+this.$route.params.id)
+        HTTP.get('wp-json/wp/v2/posts?slug='+this.$route.params.id)
         .then((resp) => {
           this.post = resp.data[0]
         })

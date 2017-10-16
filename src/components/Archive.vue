@@ -2,11 +2,11 @@
 
   <main class="main-content" id="blog-archive" v-if="posts && posts.length" :key="currentPage">
 
-    <article v-for="post of posts" class="row row-no-padding">
+    <article v-for="post of posts" class="row row-no-padding" :key="post.id">
 
       <div class="column featured-image">
         <router-link :to="{ name: 'Post', params: { id: post.slug }}">
-          <img :src="post.featured_image_url" />
+          <img :src="post.better_featured_image.source_url" />
         </router-link>
       </div>
 
@@ -51,7 +51,7 @@
 
     methods: {
       fetchData() {
-        HTTP.get('wp/v2/posts?page='+this.$route.params.id)
+        HTTP.get('wp-json/wp/v2/posts?page='+this.$route.params.id)
         .then((resp) => {
           this.posts = resp.data
           this.totalPages = resp['headers']['x-wp-totalpages']

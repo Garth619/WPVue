@@ -31,7 +31,7 @@
     methods: {
       fetchData() {
 
-        if ( this.$route.params.id === undefined ) {
+        if ( this.$route.params.id === undefined ) { // if there is no slug, we're at the home page so we need to fetch it
 
           HTTP.get('wp-json/wp/v2/pages?slug=front-page')
           .then((resp) => {
@@ -43,7 +43,7 @@
         
         } else {
 
-          HTTP.get('wp-json/wp/v2/pages?slug='+this.$route.params.id)
+          HTTP.get('wp-json/wp/v2/pages?slug='+this.$route.params.id) // if we're not at the home page, then we grab the page via its slug
           .then((resp) => {
             this.page = resp.data[0]
           })

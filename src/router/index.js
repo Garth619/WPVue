@@ -38,7 +38,7 @@ export default new Router({
       component: Page
     }
   ],
-  scrollBehavior (to, from, savedPosition) {
+  scrollBehavior (to, from, savedPosition) { // gives normal scolling behavior through app
     if (savedPosition) {
       return savedPosition
     } else {

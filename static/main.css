@@ -261,7 +261,7 @@ html {
 body {
     color: #606c76;
     background-color: rgb(239, 239, 239);
-    font-family: 'Crimson Text', serif;
+    font-family: 'Quattrocento Sans', sans-serif;
     font-size: 1.6em;
     font-weight: 300;
     letter-spacing: .01em;
@@ -299,7 +299,7 @@ input[type='submit'] {
     text-decoration: none;
     text-transform: uppercase;
     white-space: nowrap;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Oswald', sans-serif;
     border-radius: 0;
 }
 
@@ -858,7 +858,7 @@ h6 {
     font-weight: 300;
     margin-bottom: 2.0rem;
     margin-top: 0;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Oswald', sans-serif;
 }
 
 h1 {
@@ -949,13 +949,9 @@ img {
 .float-right {
     float: right;
 }
-
-@media (min-width: 60rem) {
-    
-    .router-wrap {
-        min-height: 100vh;
-    }
-
+   
+.router-wrap {
+    min-height: 100vh;
 }
 
 /* Header
@@ -988,6 +984,7 @@ img {
     display: inline-block;
     list-style-type: none;
     padding: 1vw;
+    font-family: 'Oswald', sans-serif;
 }
 
 .main-nav li a {

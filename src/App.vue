@@ -51,7 +51,7 @@
 
     methods: {
       fetchData() {
-        HTTP.get('wp-json/wp-api-menus/v2/menus/2')
+        HTTP.get('wp-json/wp-api-menus/v2/menus/2') // change the 2 here to match the ID of your navigation menu
         .then((resp) => {
           this.navItems = resp.data
         })

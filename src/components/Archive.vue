@@ -51,7 +51,7 @@
 
     methods: {
       fetchData() {
-        HTTP.get('wp-json/wp/v2/posts?page='+this.$route.params.id)
+        HTTP.get('wp-json/wp/v2/posts?page='+this.$route.params.id) // in this case the slug is the number of the page in our archive
         .then((resp) => {
           this.posts = resp.data
           this.totalPages = resp['headers']['x-wp-totalpages']

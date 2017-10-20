@@ -16,6 +16,7 @@ WP Vue is a simple web app that uses Vue.js and a WordPress installation to prov
 * For your navigation menu, create one like you normally would and save it.  Look in the URL of your browser while editing that menu and hopefully the URL will end with something like ?action=edit&menu=2 .  Here 2 is the ID of our menu.  To load up our navigation menu, edit the App.vue file in the SRC folder and you'll see a line like this: 
 `HTTP.get('wp-json/wp-api-menus/v2/menus/2')`  
 Change the 2 there to the ID of your navigation menu and save your changes.
+* You will need to create a page called "Front Page" to serve as the front page of your app.  You do not need to add that page to the navigation menu as the home link is already included in the app.
 
 ---
 
@@ -23,3 +24,4 @@ That should have your development environment hooked up to the WordPress install
 
 When you've finished your app and are ready to deploy, open up a command prompt and enter `npm run build`.  This will create a dist folder where your completed app is ready for production.  Please note this folder has to be run on a web server.  Simply opening up the index.html file there will not load up the app. 
 
+If you'd like a turn key web app, WP Web Apps <https://wpwebapps.com> is the first seller of commercial web apps for WordPress.  
